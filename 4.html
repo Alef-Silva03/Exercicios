@@ -18,9 +18,9 @@
         <input type="number" id="Idade" nome="Idade" required><br><br>
         <label for="Salário">Salário (maior que zero):</label><br>
         <input type="number" id="Salário" nome="Salário" required><br><br>
-        <label for="Sexo">Sexo ('F' ou 'M'):</label><br>
+        <label for="Sexo">Sexo ('f' ou 'm'):</label><br>
         <input type="text" id="Sexo" nome="Sexo" required><br><br>
-        <label for="EstadoCivil">Estado Civil ('S', 'C', 'V', 'D'):</label><br>
+        <label for="EstadoCivil">Estado Civil ('s', 'c', 'v', 'd'):</label><br>
         <input type="text" id="EstadoCivil" nome="EstadoCivil" required><br><br>
         <input type="submit" value="Enviar">
     </form>
@@ -50,12 +50,12 @@
                 return;
             }
 
-            if (sexo !== 'F' && sexo !== 'M') {
+            if (sexo !== 'f' && sexo !== 'm') {
                 alert("Erro: O sexo deve ser 'f' ou 'm'.");
                 return;
             }
 
-            if (!['S', 'C', 'V', 'D'].includes(estadoCivil)) {
+            if (!['s', 'c', 'v', 'd'].includes(estadoCivil)) {
                 alert("Erro: O estado civil deve ser 's', 'c', 'v' ou 'd'.");
                 return;
             }
