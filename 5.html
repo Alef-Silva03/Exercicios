@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+
+<body>
+
+    <h1>Crescimento Populacional</h1>
+    <form id="População">
+        <input type="submit" value="Calcular Anos Necessários">
+    </form>
+
+    <script>
+        document.getElementById("População").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var populacaoA = 80000;
+            var taxaA = 0.03;
+            var populacaoB = 200000;
+            var taxaB = 0.015;
+            var anos = 0;
+
+            while (populacaoA < populacaoB) {
+                populacaoA += populacaoA * taxaA;
+                populacaoB += populacaoB * taxaB;
+                anos++;
+            }
+
+            alert("Número de anos necessários para que a população do país A ultrapasse ou iguale a população do país B: " + anos);
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!-- 4.Supondo que a população de um país A seja da ordem de 80000 habitantes com uma taxa anual de 
+ crescimento de 3% e que a população de B seja 200000 habitantes com uma taxa de crescimento de 1.5%. Faça um programa que calcule e 
+ escreva o número de anos necessários para que a população do país A ultrapasse ou iguale a população do país B, mantidas as taxas de crescimento.-->

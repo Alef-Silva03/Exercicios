@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    
+    <h1>Validação de Informações</h1>
+    <hr>
+    <form id="Validação">
+        <label for="nome">nome (maior que 3 caracteres):</label><br>
+        <input type="text" id="nome" nome="nome" required><br><br>
+        <label for="Idade">Idade (entre 0 e 150):</label><br>
+        <input type="number" id="Idade" nome="Idade" required><br><br>
+        <label for="Salário">Salário (maior que zero):</label><br>
+        <input type="number" id="Salário" nome="Salário" required><br><br>
+        <label for="Sexo">Sexo ('F' ou 'M'):</label><br>
+        <input type="text" id="Sexo" nome="Sexo" required><br><br>
+        <label for="EstadoCivil">Estado Civil ('S', 'C', 'V', 'D'):</label><br>
+        <input type="text" id="EstadoCivil" nome="EstadoCivil" required><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        document.getElementById("Validação").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var nome = document.getElementById("nome").value;
+            var idade = parseInt(document.getElementById("Idade").value);
+            var salario = parseFloat(document.getElementById("Salário").value);
+            var sexo = document.getElementById("Sexo").value.toLowerCase();
+            var estadoCivil = document.getElementById("EstadoCivil").value.toLowerCase();
+
+            if (nome.length <= 3) {
+                alert("Erro: O nome deve ter mais de 3 caracteres.");
+                return;
+            }
+
+            if (isNaN(idade) || idade < 0 || idade > 150) {
+                alert("Erro: A idade deve estar entre 0 e 150.");
+                return;
+            }
+
+            if (isNaN(salario) || salario <= 0) {
+                alert("Erro: O salário deve ser maior que zero.");
+                return;
+            }
+
+            if (sexo !== 'F' && sexo !== 'M') {
+                alert("Erro: O sexo deve ser 'f' ou 'm'.");
+                return;
+            }
+
+            if (!['S', 'C', 'V', 'D'].includes(estadoCivil)) {
+                alert("Erro: O estado civil deve ser 's', 'c', 'v' ou 'd'.");
+                return;
+            }
+
+            alert("Todas as informações são válidas!");
+        });
+    </script>
+
+</body>
+
+</html>
+<!--3.	Faça um programa que leia e valide as seguintes informações:
+a.	Nome: maior que 3 caracteres;
+b.	Idade: entre 0 e 150;
+c.	Salário: maior que zero;
+d.	Sexo: 'f' ou 'm';
+e.	Estado Civil: 's', 'c', 'v', 'd';
+Dica: se sua variável é texto, o tamanho dela está armazenado em: texto.length-->
