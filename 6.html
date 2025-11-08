@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+
+<body>
+    <h1>Crescimento Populacional</h1>
+    <form id="form">
+        <label>Digite a população A:<br>
+            <input type="number" id="populacaoA" min="1" step="1" required placeholder="ex: 20000">
+        </label><br>
+        <label>Digite a taxa A (% ao ano):<br>
+            <input type="number" id="taxaA" min="0" step="any" required placeholder="ex: 2 para 2%">
+        </label><br><br>
+
+        <label>Digite a população B:<br>
+            <input type="number" id="populacaoB" min="1" step="1" required placeholder="ex: 500000">
+        </label><br>
+        <label>Digite a taxa B (% ao ano):<br>
+            <input type="number" id="taxaB" min="0" step="any" required placeholder="ex: 1.5 para 1.5%">
+        </label><br><br>
+
+        <button type="button" onclick="Calcular()">Calcular</button>
+    </form>
+
+    <script>
+        function Calcular() {
+            var populacaoA = Number(document.getElementById("populacaoA").value);
+            var taxaA = Number(document.getElementById("taxaA").value) / 100;
+            var populacaoB = Number(document.getElementById("populacaoB").value);
+            var taxaB = Number(document.getElementById("taxaB").value) / 100;
+            var anos = 0;
+
+            while (populacaoA < populacaoB) {
+                populacaoA += populacaoA * taxaA;
+                populacaoB += populacaoB * taxaB;
+                anos++;
+            }
+            alert("Número de anos necessários para que a população do país A ultrapasse ou iguale a população do país B : " + anos + " anos.");
+        }
+    </script>
+</body>
+
+</html>
+<!--5.	Altere o programa anterior permitindo ao usuário informar as populações e as taxas de crescimento iniciais. Valide a entrada e permita repetir a operação.-->
